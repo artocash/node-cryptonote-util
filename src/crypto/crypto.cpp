@@ -2,7 +2,13 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+
+#if !defined(_MSC_VER)
 #include <alloca.h>
+#else
+#include <malloc.h>
+#endif
+
 #include <cassert>
 #include <cstddef>
 #include <cstdint>

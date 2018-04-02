@@ -1,17 +1,25 @@
 {
     "name": "cryptonote-util",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "cryptonote",
-    "author": {
-        "name": "LucasJones",
-        "email": "lucasjonesdev@hotmail.co.uk"
-    },
+    "contributors": [
+        {
+            "name": "LucasJones",
+            "email": "lucasjonesdev@hotmail.co.uk"
+        },
+        {
+            "name": "IPBC-Dev",
+            "email": "hello@ipbc.io",
+            "url": "https://github.com/ipbc-dev/"
+        }
+    ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/LucasJones/node-cryptonote-util.git"
+        "url": "https://github.com/ipbc-dev/node-cryptonote-util.git"
     },
-    "dependencies" : {
-        "bindings" : "*"
+    "dependencies": {
+        "bindings": "*",
+        "nan": "^2.10.0"
     },
     "keywords": [
         "cryptonight",

@@ -8,7 +8,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
+
+#ifndef _MSC_VER
 #include <sys/param.h>
+#endif
 
 #if defined(_MSC_VER)
 #include <stdlib.h>

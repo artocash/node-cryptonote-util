@@ -41,6 +41,10 @@ namespace crypto {
     cn_slow_hash(data, length, reinterpret_cast<char *>(&hash));
   }
 
+  inline void cn_slow_hash_variant(const void *data, std::size_t length, hash &hash, int variant) {
+    cn_slow_hash_variant(data, length, reinterpret_cast<char *>(&hash), variant);
+  }
+
   inline void tree_hash(const hash *hashes, std::size_t count, hash &root_hash) {
     tree_hash(reinterpret_cast<const char (*)[HASH_SIZE]>(hashes), count, reinterpret_cast<char *>(&root_hash));
   }

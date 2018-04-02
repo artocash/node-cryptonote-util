@@ -70,7 +70,7 @@ static bool mergeBlocks(const cryptonote::block& block1, cryptonote::block& bloc
 }
 
 static bool construct_parent_block(const cryptonote::block& b, cryptonote::block& parent_block) {
-    if (b.majorVersion >= 3) {
+    if (b.major_version >= 3) {
         parent_block.major_version = 3;
     }
     else {

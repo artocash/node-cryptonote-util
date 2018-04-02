@@ -74,7 +74,7 @@ static bool construct_parent_block(const cryptonote::block& b, cryptonote::block
         parent_block.major_version = 3;
     }
     else {
-        parent_block.major_version = 0;
+        parent_block.major_version = 1;
     }
 
     parent_block.minor_version = 0;
@@ -139,17 +139,22 @@ NAN_METHOD(convert_blob) {
     if (!parse_and_validate_block_from_blob(input, b))
         THROW_ERROR_EXCEPTION("Failed to parse block");
 
-    if (b.major_version < BLOCK_MAJOR_VERSION_2) {
-        if (!get_block_hashing_blob(b, output))
-            THROW_ERROR_EXCEPTION("Failed to create mining block");
-    } else {
-        block parent_block;
-        if (!construct_parent_block(b, parent_block))
-            THROW_ERROR_EXCEPTION("Failed to construct parent block");
+    if (!get_block_hashing_blob(b, output))
+        THROW_ERROR_EXCEPTION("Failed to create mining block");
 
-        if (!get_block_hashing_blob(parent_block, output))
-            THROW_ERROR_EXCEPTION("Failed to create mining block");
-    }
+
+    // if (b.major_version < BLOCK_MAJOR_VERSION_2) {
+    //     if (!get_block_hashing_blob(b, output))
+    //         THROW_ERROR_EXCEPTION("Failed to create mining block");
+    // } else {
+    //     block parent_block;
+    //     b.parent_block.nonce = nonce;
+    //     if (!construct_parent_block(b, parent_block))
+    //         THROW_ERROR_EXCEPTION("Failed to construct parent block");
+
+    //     if (!get_block_hashing_blob(parent_block, output))
+    //         THROW_ERROR_EXCEPTION("Failed to create mining block");
+    // }
 
     // Buffer* buff = Buffer::New(output.data(), output.size());
     // return scope.Close(buff->handle_);

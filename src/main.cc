@@ -139,22 +139,18 @@ NAN_METHOD(convert_blob) {
     if (!parse_and_validate_block_from_blob(input, b))
         THROW_ERROR_EXCEPTION("Failed to parse block");
 
-    if (!get_block_hashing_blob(b, output))
-        THROW_ERROR_EXCEPTION("Failed to create mining block");
+    if (b.major_version < BLOCK_MAJOR_VERSION_2) {
+        if (!get_block_hashing_blob(b, output))
+            THROW_ERROR_EXCEPTION("Failed to create mining block");
+    } else {
+        block parent_block;
+        b.parent_block.nonce = b.nonce;
+        if (!construct_parent_block(b, parent_block))
+            THROW_ERROR_EXCEPTION("Failed to construct parent block");
 
-
-    // if (b.major_version < BLOCK_MAJOR_VERSION_2) {
-    //     if (!get_block_hashing_blob(b, output))
-    //         THROW_ERROR_EXCEPTION("Failed to create mining block");
-    // } else {
-    //     block parent_block;
-    //     b.parent_block.nonce = nonce;
-    //     if (!construct_parent_block(b, parent_block))
-    //         THROW_ERROR_EXCEPTION("Failed to construct parent block");
-
-    //     if (!get_block_hashing_blob(parent_block, output))
-    //         THROW_ERROR_EXCEPTION("Failed to create mining block");
-    // }
+        if (!get_block_hashing_blob(parent_block, output))
+            THROW_ERROR_EXCEPTION("Failed to create mining block");
+    }
 
     // Buffer* buff = Buffer::New(output.data(), output.size());
     // return scope.Close(buff->handle_);

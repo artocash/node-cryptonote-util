@@ -74,7 +74,7 @@ static bool construct_parent_block(const cryptonote::block& b, cryptonote::block
         parent_block.major_version = 3;
     }
     else {
-        parent_block.major_version = 1;
+        parent_block.major_version = 0;
     }
 
     parent_block.minor_version = 0;

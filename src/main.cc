@@ -144,7 +144,6 @@ NAN_METHOD(convert_blob) {
             THROW_ERROR_EXCEPTION("Failed to create mining block");
     } else {
         block parent_block;
-        b.parent_block.nonce = b.nonce;
         if (!construct_parent_block(b, parent_block))
             THROW_ERROR_EXCEPTION("Failed to construct parent block");
 

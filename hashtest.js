@@ -17,7 +17,7 @@ var v1_out = v1_out_c.toString('hex');
 console.log("V1", v1_r, v1_out, v1_r === v1_out);
 
 var v2_in = "38274c97c45a172cfc97679870422e3a1ab0784960c60514d816271415c306ee3a3ed1a77e31f6a885c3cb";
-var v2_r = "070302c3a36668f598490352309e02bd58feae14284c7fcddbd5fc569b362df8";
+var v2_r = "4e785376ed2733262d83cc25321a9d0003f5395315de919acf1b97f0a84fbd2d";
 var v2_in_c = new Buffer(v2_in, 'hex');
 var v2_out_c = cnUtil.cn_slowhash_variant(v2_in_c, 2);
 var v2_out = v2_out_c.toString('hex');
@@ -25,7 +25,7 @@ var v2_out = v2_out_c.toString('hex');
 console.log("V2", v2_r, v2_out, v2_r === v2_out);
 
 var v3_in = "38274c97c45a172cfc97679870422e3a1ab0784960c60514d816271415c306ee3a3ed1a77e31f6a885c3cb";
-var v3_r = "aac15d4b8025c46b37253b7c8328fce6d2e4b396ffe8403ebc4b72e74c2366a6";
+var v3_r = "b442a2b956e63fefe81bfa8bcbc4ddd6b63f86530eeaa46588311d290afbb2c0";
 var v3_in_c = new Buffer(v3_in, 'hex');
 var v3_out_c = cnUtil.cn_slowhash_variant(v3_in_c, 3);
 var v3_out = v3_out_c.toString('hex');

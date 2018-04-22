@@ -132,7 +132,7 @@ void cn_slow_hash_variant(const void *data, size_t length, char *hash, int varia
 
   // Magic Start
   //const uint64_t tweak = ((variant > 0) && (length > 43)) ? (state.hs.w[23] ^(*((const uint64_t*)NONCE_POINTER))) : 0;
-  int speed_factor = variant > 1 ? 2 : 1;
+  int speed_factor = variant > 1 ? 1 : 1;
   uint64_t ACTUAL_MEMORY = MEMORY / speed_factor;
   uint64_t ACTUAL_ITER = ITER / speed_factor;
   VARIANT1_INIT64();

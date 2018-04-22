@@ -11,11 +11,16 @@
             "name": "IPBC-Dev",
             "email": "hello@ipbc.io",
             "url": "https://github.com/ipbc-dev/"
+        },
+        {
+            "name": "Arto",
+            "email": "dev@arto.cash",
+            "url": "https://github.com/artocash/"
         }
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/ipbc-dev/node-cryptonote-util.git"
+        "url": "https://github.com/artocash/node-cryptonote-util.git"
     },
     "dependencies": {
         "bindings": "*",
